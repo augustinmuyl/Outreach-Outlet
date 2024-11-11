@@ -1,0 +1,16 @@
+{%extends "base.html"%}
+
+{% block head %}
+    <title>Outreach Outlet</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Results</h1>
+    <p>You searched for: {{ current_category }}</p>
+    <p>Here are some volunteering opportunities:</p>
+    <ul>
+        {% for opportunity in volunteering_list %}
+            <li>{{ opportunity }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
