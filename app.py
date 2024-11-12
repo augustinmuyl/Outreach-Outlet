@@ -40,6 +40,7 @@ def csv_to_db(csv):
 
 
 with app.app_context():
+    db.drop_all()
     db.create_all()
     csv_to_db('Data.csv')
 
@@ -48,7 +49,7 @@ with app.app_context():
 @app.route('/', methods= ['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        current_category = request.form.get('Category')
+        current_category = request.form['current_category']
         return redirect( f'/results/{current_category}')
     else:
         return render_template('index.html')
@@ -56,10 +57,10 @@ def index():
     
 
 # Results page
-@app.route('/results/<category>', methods=['GET'])
+@app.route('/results/<current_category>', methods=['GET'])
 def results(current_category):
     volunteering_list = Organization.query.filter_by(category=current_category).all()
-    return render_template('results.html', volunteering_list=volunteering_list)
+    return render_template('results.html', volunteering_list=volunteering_list, current_category=current_category)
     
     
 
