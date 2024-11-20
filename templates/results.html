@@ -5,18 +5,50 @@
 {% endblock %}
 
 {% block body %}
+
+<div class="header">
+
+    <h1><a href="/">Outreach<span>Outlet</span></a></h1>
+
+    <nav>
+        <ul>
+            <a href="/"><button>Home</button></a>
+        </ul>
+    </nav>
+
+</div>
+
 <div class="content" >
-    <h1>Results</h1>
-    <p>You searched for: {{ current_category }}</p>
-    {% if volunteering_list %}
-    <p>Here are some volunteering opportunities:</p>
-    <ul>
-        {% for opportunity in volunteering_list %}
-            <li>{{ opportunity }}</li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No opportunities found. Try again!</p>
-    {% endif %}
+
+    <div class="form-content">
+
+        <p>I would like to do:</p>
+        <form action="" method="POST">
+            <select name="new_category" required>
+                <option value="{{current_category}}" disabled selected>{{current_category}}</option>
+                {% for category in categories %}
+                    <option value="{{category}}">{{ category }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+    
+    <div class="results">
+
+        {% if volunteering_list %}
+            <p>Showing {{ num_opportunities  }} available opportunities:</p>
+            <ul>
+                {% for opportunity in volunteering_list %}
+                    <li>{{ opportunity }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No opportunities in this field available currently.</p>
+        {% endif %}
+
+    </div>
+    
 </div>
 {% endblock %}

@@ -31,17 +31,23 @@ with app.app_context():
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        current_category = request.form['current_category']
+        current_category = request.form.get('current_category')
         return redirect(f'/results/{current_category}')
     else:
         return render_template('index.html', categories=data_processor.get_categories())
 
 
 # Results page
-@app.route('/results/<current_category>', methods=['GET'])
+@app.route('/results/<current_category>', methods=['GET', 'POST'])
 def results(current_category):
-    volunteering_list = data_processor.get_opportunities_from_category(current_category)
-    return render_template('results.html', volunteering_list=volunteering_list, current_category=current_category)
+    if request.method == 'POST':
+        new_category = request.form.get('new_category', current_category)
+        return redirect(f'/results/{new_category}')
+    else:
+        volunteering_list = data_processor.get_opportunities_from_category(current_category)
+        return render_template('results.html', volunteering_list=volunteering_list,
+                            current_category=current_category, num_opportunities=len(volunteering_list),
+                            categories=data_processor.get_categories())
 
 
 if __name__ == '__main__':

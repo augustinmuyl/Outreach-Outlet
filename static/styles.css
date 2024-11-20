@@ -1,10 +1,125 @@
 body {
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  background-color: white;
+  color: black;
+  font-weight: 400;
 }
-
-.content {
-  text-align: center;
-  margin-top: 50px;
-  font-size: 20px;
+body .header {
+  background-color: #F3F3F3;
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.05rem solid #4C0827;
+}
+body .header h1 {
+  font-size: 2.5rem;
+  margin-left: 1rem;
+  font-weight: 750;
+}
+body .header h1 a {
+  text-decoration: none;
+  color: black;
+}
+body .header h1 span {
+  color: #4C0827;
+}
+body .header ul {
+  list-style: none;
+  margin-right: 1rem;
+}
+body .header ul a button {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  background-color: #F3F3F3;
+  border: 0.2rem solid #7D4F50;
+  color: #7D4F50;
+  font-weight: 700;
+  cursor: pointer;
+}
+body .header ul a button:hover {
+  background-color: #7D4F50;
+  color: white;
+}
+body .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .content h1 {
+  margin-top: 3rem;
+  font-size: 2.5rem;
+  color: #4C0827;
+  margin-bottom: 0;
+}
+body .content p {
+  font-size: 1.95rem;
+  margin: 0;
+}
+body .content .form-content {
+  margin-top: 2rem;
+  font-size: 1.95rem;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 0.1rem;
+}
+body .content .form-content form {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+body .content .form-content form select {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.075rem solid #4C0827;
+}
+body .content .form-content form button {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.075rem solid #4C0827;
+  background-color: #798478;
+  color: black;
+  cursor: pointer;
+}
+body .content .form-content form button:hover {
+  background-color: #616a60;
+}
+body .results {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+body .results p {
+  margin: 0;
+  margin-left: 2rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+}
+body .results ul {
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.7rem;
+  color: black;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+body .results ul li {
+  padding: 1.5rem;
+  border: 0.075rem solid #4C0827;
+  background-color: #F3F3F3;
+  margin: 0;
+  text-align: left;
 }/*# sourceMappingURL=styles.css.map */
