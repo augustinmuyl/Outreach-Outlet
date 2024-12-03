@@ -50,12 +50,14 @@ class Data_Processor:
                         title=result['title'],
                         organization=result['organization']['name'],
                         description=result['description'],
+                        org_logo=result['organization']['logo']
                     )
                     db.session.add(opportunity)
                 else:
                     opportunity.title = result['title']
                     opportunity.organization = result['organization']['name']
                     opportunity.description = result['description']
+                    opportunity.org_logo = result['organization']['logo']
 
                 for activity in result['activities']:
 
@@ -83,6 +85,9 @@ class Data_Processor:
         categories = db.session.query(Category.name).distinct().all()
 
         return [category.name for category in categories]
+    
+    def get_opportunity(self, opportunity_id):
+        return Opportunity.query.get(opportunity_id)
 
 
 

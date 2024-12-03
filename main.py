@@ -50,5 +50,11 @@ def results(current_category):
                             categories=data_processor.get_categories())
 
 
+# Opportunity page
+@app.route('/opportunity/<opportunity_id>', methods=['GET', 'POST'])
+def opportunity(opportunity_id):
+    return render_template('opportunity.html', opportunity=data_processor.get_opportunity(opportunity_id))
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=5001)  # Run the app in debug mode

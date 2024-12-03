@@ -41,7 +41,17 @@
             <p>Showing {{ num_opportunities  }} available opportunities:</p>
             <ul>
                 {% for opportunity in volunteering_list %}
-                    <li>{{ opportunity }}</li>
+                    <a href="/opportunity/{{opportunity.id}}">
+                        <li>
+                            <div class="opportunity-title">{{ opportunity.title }}</div>
+                            <div class="opportunity-org">
+                                <div class="logo-container">
+                                    <img src="{{opportunity.org_logo}}" alt="{{opportunity.company}} logo" class="org-logo">
+                                </div>
+                                {{opportunity.organization}}
+                            </div>
+                        </li>
+                    </a>
                 {% endfor %}
             </ul>
             {% else %}

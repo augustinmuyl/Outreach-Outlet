@@ -1,0 +1,38 @@
+{%extends "base.html"%}
+
+{% block head %}
+    <title>Outreach Outlet</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="header">
+
+    <h1><a href="/">Outreach<span>Outlet</span></a></h1>
+
+    <nav>
+        <ul>
+            <a href="/"><button>Home</button></a>
+        </ul>
+    </nav>
+
+</div>
+
+<div class="content">
+
+    <div class="opportunity">
+
+        <ol>
+            <h1>
+                <div class="opportunity-title">{{opportunity.title}}</div>
+                <div class="opportunity-org">{{opportunity.organization}}</div>
+            </h1>
+            <p>{{opportunity.description}}</p>
+        </ol>
+        
+
+    </div>
+
+</div>
+
+{% endblock %}
