@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Profile - Outreach Outlet</title>
+{% endblock %}
+
+{% block body %}
+
+
+<div class="content">
+
+    <div class="profile">
+        <h1>Profile</h1>
+
+        <ul>
+            <p>Username: {{ user.username }}</p>
+            <p>Email: {{ user.email }}</p>
+            <ul>
+                <a href="/logout"><button>Logout</button></a>
+                <a href="#" onclick="confirmDelete()"><button>Delete Account</button></a>
+            </ul>
+            <a href="/saved_opportunities">View Saved Opportunities</a>
+        </ul>
+    </div>
+
+    <script>
+        function confirmDelete() {
+            var result = confirm("Are you sure you want to delete your account? This action cannot be undone.");
+            if (result) {
+                window.location.href = "/delete_account";
+            }
+        }
+    </script>
+    
+    
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{%extends "base.html"%}
+
+{% block head %}
+    <title>Outreach Outlet</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="content" > 
+
+    <div class="saved_opportunities">
+
+        <h1>Saved Opportunities</h1>
+        <ul>
+            {% if opportunities %}
+                {% for opportunity in opportunities %}
+                    <a href="/user_opportunity/{{opportunity.id}}">
+                        <li>
+                            <div class="opportunity-title">{{ opportunity.title }}</div>
+                            <div class="opportunity-org">
+                                <div class="logo-container">
+                                    <img src="{{opportunity.org_logo}}" alt="{{opportunity.company}} logo" class="org-logo">
+                                </div>
+                                {{opportunity.organization}}
+                            </div>
+                        </li>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>No opportunities saved.</p>
+            {% endif %}
+        </ul>
+
+    </div>
+    
+
+</div>
+
+{% endblock %}

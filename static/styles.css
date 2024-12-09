@@ -32,7 +32,10 @@ body .header h1 span {
 }
 body .header ul {
   list-style: none;
-  margin-right: 1rem;
+  margin-right: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 body .header ul a button {
   font-size: 1.2rem;
@@ -40,7 +43,7 @@ body .header ul a button {
   background-color: #F3F3F3;
   border: 0.2rem solid #7D4F50;
   color: #7D4F50;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
 }
 body .header ul a button:hover {
@@ -94,6 +97,66 @@ body .content .form-content form button {
 body .content .form-content form button:hover {
   background-color: #616a60;
 }
+body .content .profile {
+  background-color: #F3F3F3;
+  padding: 3rem;
+  margin: 3rem;
+  border: 0.05rem solid #4C0827;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+body .content .profile h1 {
+  font-size: 2rem;
+  color: black;
+  margin: 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+body .content .profile ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+body .content .profile ul p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+  white-space: pre-line;
+  line-height: 1.7;
+}
+body .content .profile ul ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+body .content .profile ul ul button {
+  background-color: #F3F3F3;
+}
+body .content .profile ul ul button:hover {
+  background-color: #9dad9b;
+}
+body .content .profile ul button {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.075rem solid #4C0827;
+  background-color: #798478;
+  color: black;
+  cursor: pointer;
+}
+body .content .profile ul button:hover {
+  background-color: #616a60;
+}
 body .results {
   margin-top: 1.5rem;
   display: flex;
@@ -133,16 +196,17 @@ body .results ul a li {
   grid-template-columns: 3fr 1fr;
   height: 100%;
   gap: 1rem;
+  width: 30rem;
 }
 body .results ul a li .opportunity-title {
   display: flex;
-  align-items: center;
   padding-right: 0.1rem;
   text-align: center;
+  font-size: 1.25rem;
 }
 body .results ul a li .opportunity-org {
   color: #4D6A6D;
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -167,25 +231,28 @@ body .results ul a li .opportunity-org .logo-container .org-logo {
      object-fit: contain;
 }
 body .opportunity {
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-bottom: 3rem;
   display: flex;
-  flex-direction: column;
-  padding: 3rem;
-  background-color: #F3F3F3;
+  flex-direction: row;
+  gap: 1.5rem;
   margin-left: 15rem;
   margin-right: 15rem;
+}
+body .opportunity .opportunity-description {
+  background-color: #F3F3F3;
+  padding: 3rem;
   border: 0.05rem solid #4C0827;
 }
-body .opportunity ol {
+body .opportunity .opportunity-description ol {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
 }
-body .opportunity ol h1 {
+body .opportunity .opportunity-description ol h1 {
   font-size: 2rem;
   color: black;
   margin: 0;
@@ -193,18 +260,171 @@ body .opportunity ol h1 {
   display: flex;
   align-items: center;
 }
-body .opportunity ol h1 .opportunity-org {
-  color: #4D6A6D;
-  display: flex;
-  margin-left: auto;
-  padding-left: 2rem;
-  font-size: 1.5rem;
-  margin-right: 0;
-}
-body .opportunity ol p {
+body .opportunity .opportunity-description ol p {
   font-size: 1.5rem;
   font-weight: 400;
   margin: 0;
   white-space: pre-line;
   line-height: 1.7;
+}
+body .opportunity .opportunity-org {
+  background-color: #F3F3F3;
+  padding: 1.75rem;
+  border: 0.05rem solid #4C0827;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+body .opportunity .opportunity-org .logo-container {
+  height: 10rem;
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.05rem solid #4C0827;
+  background-color: white;
+}
+body .opportunity .opportunity-org .logo-container .org-logo {
+  max-height: 85%;
+  max-width: 85%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body .opportunity .opportunity-org p {
+  color: #4D6A6D;
+  font-size: 1rem;
+  text-align: center;
+}
+body .opportunity .opportunity-org button {
+  font-size: 1rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.35rem;
+  margin-top: 0.5rem;
+  background-color: #F3F3F3;
+  border: 0.2rem solid #7D4F50;
+  color: #7D4F50;
+  font-weight: 600;
+  cursor: pointer;
+}
+body .opportunity .opportunity-org button:hover {
+  background-color: #7D4F50;
+  color: white;
+}
+body .saved_opportunities {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15rem;
+  margin-right: 15rem;
+  margin-bottom: 5rem;
+}
+body .saved_opportunities p {
+  margin: 0;
+  margin-left: 2rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+}
+body .saved_opportunities ul {
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.7rem;
+  color: black;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 4.1rem;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+body .saved_opportunities ul a {
+  text-decoration: none;
+  color: black;
+}
+body .saved_opportunities ul a li {
+  padding: 1.5rem;
+  border: 0.075rem solid #4C0827;
+  background-color: #F3F3F3;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  height: 100%;
+  gap: 1rem;
+  width: 30rem;
+}
+body .saved_opportunities ul a li .opportunity-title {
+  display: flex;
+  padding-right: 0.1rem;
+  text-align: center;
+  font-size: 1.25rem;
+}
+body .saved_opportunities ul a li .opportunity-org {
+  color: #4D6A6D;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-left: 0.075rem solid #4C0827;
+  padding-left: 1rem;
+  text-align: center;
+}
+body .saved_opportunities ul a li .opportunity-org .logo-container {
+  height: 6.5rem;
+  width: 6.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.05rem solid #4C0827;
+  background-color: white;
+}
+body .saved_opportunities ul a li .opportunity-org .logo-container .org-logo {
+  max-height: 85%;
+  max-width: 85%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#flash-messages {
+  position: fixed;
+  top: 6.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 300px;
+}
+#flash-messages .flash-message {
+  padding: 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+  transition: opacity 0.6s ease-out;
+}
+#flash-messages .flash-message.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+#flash-messages .flash-message.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+#flash-messages .flash-message.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+#flash-messages .closebtn {
+  margin-left: 15px;
+  color: #aaa;
+  font-weight: bold;
+  float: right;
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#flash-messages .closebtn:hover {
+  color: black;
 }/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,62 @@
+{%extends "base.html"%}
+
+{% block head %}
+    <title>Outreach Outlet</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="content" > 
+
+    <div class="register">
+
+        <h2>Register</h2>
+
+        <form action="{{'/register'}}" method="POST">
+
+            {{form.hidden_tag()}}
+
+            <div>
+                {{form.username.label}} <br>
+                {{form.username}} <br>
+                {% for error in form.username.errors %}
+                    <span style="color: red">[{{error}}]</span>
+                {% endfor %}
+            </div>
+
+            <div>
+                {{form.email.label}} <br>
+                {{form.email}} <br>
+                {% for error in form.email.errors %}
+                    <span style="color: red">[{{error}}]</span>
+                {% endfor %}
+            </div>
+
+            <div>
+                {{form.password.label}} <br>
+                {{form.password}} <br>
+                {% for error in form.password.errors %}
+                    <span style="color: red">[{{error}}]</span>
+                {% endfor %}
+            </div>
+
+            <div>
+                {{form.confirm_password.label}} <br>
+                {{form.confirm_password}} <br>
+                {% for error in form.confirm_password.errors %}
+                    <span style="color: red">[{{error}}]</span>
+                {% endfor %}
+            </div>
+
+            <div>
+                {{form.submit}}
+            </div>
+
+        </form>
+
+    </div>
+    
+
+</div>
+
+{% endblock %}
