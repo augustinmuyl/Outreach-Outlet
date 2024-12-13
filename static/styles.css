@@ -45,6 +45,17 @@ body .header ul a button {
   color: #7D4F50;
   font-weight: 600;
   cursor: pointer;
+  transition: 0.3s ease;
+}
+body .header ul a button .profile-button {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  color: black;
+  border: none;
+}
+body .header ul a button .profile-button:hover {
+  background-color: #7D4F50;
+  color: white;
 }
 body .header ul a button:hover {
   background-color: #7D4F50;
@@ -84,6 +95,7 @@ body .content .form-content form select {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 0.05rem solid #4C0827;
+  margin-right: 0.2rem;
 }
 body .content .form-content form button {
   font-size: 1.2rem;
@@ -93,6 +105,7 @@ body .content .form-content form button {
   background-color: #798478;
   color: black;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 body .content .form-content form button:hover {
   background-color: #616a60;
@@ -118,6 +131,7 @@ body .content .profile h1 {
 body .content .profile ul {
   list-style: none;
   margin: 0;
+  margin-bottom: 0.75rem;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -141,21 +155,18 @@ body .content .profile ul ul {
 }
 body .content .profile ul ul button {
   background-color: #F3F3F3;
-}
-body .content .profile ul ul button:hover {
-  background-color: #9dad9b;
-}
-body .content .profile ul button {
+  transition: background-color 0.15s ease;
   font-size: 1.2rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 0.075rem solid #4C0827;
-  background-color: #798478;
-  color: black;
   cursor: pointer;
 }
-body .content .profile ul button:hover {
-  background-color: #616a60;
+body .content .profile ul ul button:hover {
+  background-color: #9dad9b;
+}
+body .content .profile ul a {
+  font-size: 1.2rem;
 }
 body .results {
   margin-top: 1.5rem;
@@ -179,9 +190,9 @@ body .results ul {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: 4.1rem;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
+  row-gap: 4.6rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 body .results ul a {
   text-decoration: none;
@@ -197,12 +208,23 @@ body .results ul a li {
   height: 100%;
   gap: 1rem;
   width: 30rem;
+  transition: box-shadow 0.3s ease;
 }
 body .results ul a li .opportunity-title {
   display: flex;
   padding-right: 0.1rem;
   text-align: center;
   font-size: 1.25rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+body .results ul a li .opportunity-title ol {
+  font-size: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 80%;
 }
 body .results ul a li .opportunity-org {
   color: #4D6A6D;
@@ -229,6 +251,9 @@ body .results ul a li .opportunity-org .logo-container .org-logo {
   max-width: 85%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+body .results ul a li:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
 body .opportunity {
   margin-top: 3rem;
@@ -308,6 +333,7 @@ body .opportunity .opportunity-org button {
   color: #7D4F50;
   font-weight: 600;
   cursor: pointer;
+  transition: 0.15s ease;
 }
 body .opportunity .opportunity-org button:hover {
   background-color: #7D4F50;
@@ -317,27 +343,27 @@ body .saved_opportunities {
   margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-left: 15rem;
   margin-right: 15rem;
   margin-bottom: 5rem;
 }
 body .saved_opportunities p {
-  margin: 0;
-  margin-left: 2rem;
-  margin-bottom: 0.25rem;
+  margin-top: 1rem;
   font-size: 1.5rem;
 }
 body .saved_opportunities ul {
   margin: 0;
+  margin-top: 1rem;
   padding: 1rem;
   font-size: 1.7rem;
   color: black;
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: 4.1rem;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
+  row-gap: 4.6rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 body .saved_opportunities ul a {
   text-decoration: none;
@@ -353,12 +379,23 @@ body .saved_opportunities ul a li {
   height: 100%;
   gap: 1rem;
   width: 30rem;
+  transition: box-shadow 0.3s ease;
 }
 body .saved_opportunities ul a li .opportunity-title {
   display: flex;
   padding-right: 0.1rem;
   text-align: center;
   font-size: 1.25rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+body .saved_opportunities ul a li .opportunity-title ol {
+  font-size: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 80%;
 }
 body .saved_opportunities ul a li .opportunity-org {
   color: #4D6A6D;
@@ -385,6 +422,9 @@ body .saved_opportunities ul a li .opportunity-org .logo-container .org-logo {
   max-width: 85%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+body .saved_opportunities ul a li:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
 
 #flash-messages {
@@ -414,17 +454,4 @@ body .saved_opportunities ul a li .opportunity-org .logo-container .org-logo {
 #flash-messages .flash-message.alert-info {
   background-color: #d1ecf1;
   color: #0c5460;
-}
-#flash-messages .closebtn {
-  margin-left: 15px;
-  color: #aaa;
-  font-weight: bold;
-  float: right;
-  font-size: 20px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-#flash-messages .closebtn:hover {
-  color: black;
 }/*# sourceMappingURL=styles.css.map */

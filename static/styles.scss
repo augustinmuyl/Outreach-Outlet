@@ -42,6 +42,7 @@ body{
             display: flex;
             flex-direction: row;
             gap: 1rem;
+            
             a{
                 button{
                     font-size: 1.2rem;
@@ -51,12 +52,31 @@ body{
                     color: #7D4F50;
                     font-weight: 600;
                     cursor: pointer;
+                    transition: 0.3s ease;
+
+                    .profile-button{
+                        
+
+                            font-size: 1.2rem;
+                            padding: 0.5rem;
+                            color: black;
+                            border: none;
+
+                            &:hover{
+                                background-color: #7D4F50;
+                                color: white;
+                            }
+                        
+                    }
                     &:hover{
                         background-color: #7D4F50;
                         color: white;
                     }
                 }
+                
             }
+            
+            
         }
 
     }
@@ -101,6 +121,7 @@ body{
                     padding: 0.5rem;
                     border-radius: 0.5rem;
                     border: 0.05rem solid #4C0827;
+                    margin-right: 0.2rem;
                 }
 
                 button{
@@ -111,6 +132,7 @@ body{
                     background-color: #798478;
                     color: black;
                     cursor: pointer;
+                    transition: background-color 0.3s ease;
 
                     &:hover{
                         background-color: #616a60;
@@ -143,6 +165,7 @@ body{
             ul{
                 list-style: none;
                 margin: 0;
+                margin-bottom: 0.75rem;
                 padding: 0;
                 display: flex;
                 flex-direction: column;
@@ -167,26 +190,24 @@ body{
 
                     button{
                         background-color: #F3F3F3;
-                        
+                        transition: background-color 0.15s ease;
+                        font-size: 1.2rem;
+                        padding: 0.5rem;
+                        border-radius: 0.5rem;
+                        border: 0.075rem solid #4C0827;
+                        cursor: pointer;
+
                         &:hover{
                             background-color: #9dad9b;
                         }
                     }
                 }
 
-                button{
+                a{
                     font-size: 1.2rem;
-                    padding: 0.5rem;
-                    border-radius: 0.5rem;
-                    border: 0.075rem solid #4C0827;
-                    background-color: #798478;
-                    color: black;
-                    cursor: pointer;
-
-                    &:hover{
-                        background-color: #616a60;
-                    }
                 }
+
+                
             }
         }
     }
@@ -214,8 +235,8 @@ body{
             list-style: none;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            row-gap: 4.1rem;
-            column-gap: 1rem;
+            row-gap: 4.6rem;
+            column-gap: 1.5rem;
 
 
             a{
@@ -232,12 +253,24 @@ body{
                     height: 100%;
                     gap: 1rem;
                     width: 30rem;
+                    transition: box-shadow 0.3s ease;
 
                     .opportunity-title{
                         display: flex;
                         padding-right: 0.1rem;
                         text-align: center;
                         font-size: 1.25rem;
+                        flex-direction: column;
+                        gap: 0.5rem;
+                        align-items: center;
+
+                        ol{
+                            font-size: 0.75rem;
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                            width: 80%;
+                        }
                     }
 
                     .opportunity-org{
@@ -267,8 +300,13 @@ body{
                             }
                         }   
                     }
+
+                    &:hover{
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+                                    0 6px 20px rgba(0, 0, 0, 0.19);
+                    }
                 }
-            }  
+            }
         }
     }
 
@@ -358,6 +396,7 @@ body{
                 color: #7D4F50;
                 font-weight: 600;
                 cursor: pointer;
+                transition: 0.15s ease;
 
                 &:hover{
                     background-color: #7D4F50;
@@ -373,27 +412,28 @@ body{
         margin-top: 1.5rem;
         display: flex;
         flex-direction: column;
+        align-items: center;
         margin-left: 15rem;
         margin-right: 15rem;
         margin-bottom: 5rem;
 
+
         p{
-            margin: 0;
-            margin-left: 2rem;
-            margin-bottom: 0.25rem;
+            margin-top: 1rem;
             font-size: 1.5rem;
         }
 
         ul{
             margin: 0;
+            margin-top: 1rem;
             padding: 1rem;
             font-size: 1.7rem;
             color: black;
             list-style: none;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            row-gap: 4.1rem;
-            column-gap: 1rem;
+            row-gap: 4.6rem;
+            column-gap: 1.5rem;
 
 
             a{
@@ -410,12 +450,24 @@ body{
                     height: 100%;
                     gap: 1rem;
                     width: 30rem;
+                    transition: box-shadow 0.3s ease;
 
                     .opportunity-title{
                         display: flex;
                         padding-right: 0.1rem;
                         text-align: center;
                         font-size: 1.25rem;
+                        flex-direction: column;
+                        gap: 0.5rem;
+                        align-items: center;
+
+                        ol{
+                            font-size: 0.75rem;
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                            width: 80%;
+                        }
                     }
 
                     .opportunity-org{
@@ -445,6 +497,11 @@ body{
                             }
                         }   
                     }
+
+                    &:hover{
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+                                    0 6px 20px rgba(0, 0, 0, 0.19);
+                    }
                 }
             }  
         }
@@ -466,7 +523,7 @@ body{
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         opacity: 0.9;
-        transition: opacity 0.6s ease-out; // Fade-out effect
+        transition: opacity 0.6s ease-out;
 
         &.alert-success {
             background-color: #d4edda;
@@ -484,18 +541,4 @@ body{
         }
     }
 
-    .closebtn {
-        margin-left: 15px;
-        color: #aaa;
-        font-weight: bold;
-        float: right;
-        font-size: 20px;
-        line-height: 20px;
-        cursor: pointer;
-        transition: 0.3s;
-
-        &:hover {
-            color: black;
-        }
-    }
 }

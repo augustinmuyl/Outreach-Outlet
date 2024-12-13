@@ -11,12 +11,26 @@
     <div class="saved_opportunities">
 
         <h1>Saved Opportunities</h1>
-        <ul>
-            {% if opportunities %}
-                {% for opportunity in opportunities %}
+        
+        {% if opportunities %}
+            <ul>
+                    {% for opportunity in opportunities %}
                     <a href="/user_opportunity/{{opportunity.id}}">
                         <li>
-                            <div class="opportunity-title">{{ opportunity.title }}</div>
+                            <div class="opportunity-title">
+                                {{ opportunity.title }}
+
+                                <ol>
+                                    {% set unique_categories = [] %}
+                                    {% for category in opportunity.categories %}
+                                        {% if category.name not in unique_categories %}
+                                            {{ unique_categories.append(category.name) or ""}}
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {{ unique_categories | join(" / ")}}
+                                </ol>
+                            </div>
                             <div class="opportunity-org">
                                 <div class="logo-container">
                                     <img src="{{opportunity.org_logo}}" alt="{{opportunity.company}} logo" class="org-logo">
@@ -26,10 +40,10 @@
                         </li>
                     </a>
                 {% endfor %}
-            {% else %}
-                <p>No opportunities saved.</p>
-            {% endif %}
-        </ul>
+            </ul>
+        {% else %}
+            <p>No opportunities saved.</p>
+        {% endif %}
 
     </div>
     

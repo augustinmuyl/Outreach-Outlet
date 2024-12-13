@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='flash_script.js') }}"></script>
     {% block head %} {% endblock %}
 </head>
 <body>
@@ -17,7 +18,6 @@
                 {% for category, message in messages %}
                     <div class="flash-message alert alert-{{ category }}">
                         {{ message }}
-                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                     </div>
                 {% endfor %}
             {% endif %}
@@ -31,7 +31,7 @@
         <nav>
             <ul>
                 {% if current_user.is_authenticated %}
-                    <a href="/profile"><button>{{current_user.username}}</button></a>
+                    <a href="/profile"><button class="profile-button">{{current_user.username}}</button></a>
                 {% else %}
                     <a href="/login"><button>Login</button></a>
                     <a href="/register"><button>Register</button></a>
