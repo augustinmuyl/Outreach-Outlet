@@ -47,19 +47,31 @@ body .header ul a button {
   cursor: pointer;
   transition: 0.3s ease;
 }
-body .header ul a button .profile-button {
+body .header ul a button.profile-button {
   font-size: 1.2rem;
   padding: 0.5rem;
   color: black;
   border: none;
 }
-body .header ul a button .profile-button:hover {
-  background-color: #7D4F50;
-  color: white;
+body .header ul a button.profile-button:hover {
+  background-color: #F3F3F3;
+  color: #4C0827;
 }
 body .header ul a button:hover {
   background-color: #7D4F50;
   color: white;
+}
+body .header ul img {
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+body .header ul img:hover {
+  height: 4rem;
 }
 body .content {
   display: flex;
@@ -113,6 +125,7 @@ body .content .form-content form button:hover {
 body .content .profile {
   background-color: #F3F3F3;
   padding: 3rem;
+  border-radius: 0.5rem;
   margin: 3rem;
   border: 0.05rem solid #4C0827;
   display: flex;
@@ -145,6 +158,7 @@ body .content .profile ul p {
   margin: 0;
   white-space: pre-line;
   line-height: 1.7;
+  color: #666;
 }
 body .content .profile ul ul {
   display: flex;
@@ -152,6 +166,7 @@ body .content .profile ul ul {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  margin-top: 3rem;
 }
 body .content .profile ul ul button {
   background-color: #F3F3F3;
@@ -167,6 +182,115 @@ body .content .profile ul ul button:hover {
 }
 body .content .profile ul a {
   font-size: 1.2rem;
+  color: #4D6A6D;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+body .content .profile ul a:hover {
+  font-size: 1.3rem;
+  color: #324042;
+}
+body .content .register {
+  background-color: #F3F3F3;
+  padding: 3rem;
+  padding-top: 2.5rem;
+  margin: 3rem;
+  border-radius: 0.5rem;
+  border: 0.05rem solid #4C0827;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+body .content .register h1 {
+  font-size: 2rem;
+  color: black;
+  margin: 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+body .content .register form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+}
+body .content .register form input {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.05rem solid #4C0827;
+  margin: 0;
+  width: 20rem;
+}
+body .content .register form .submit-button {
+  margin-top: 0.5rem;
+  background-color: #F3F3F3;
+  transition: background-color 0.15s ease;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.075rem solid #4C0827;
+  cursor: pointer;
+  width: 6rem;
+}
+body .content .register form .submit-button:hover {
+  background-color: #9dad9b;
+}
+body .content .login {
+  background-color: #F3F3F3;
+  border-radius: 0.5rem;
+  padding: 3rem;
+  padding-top: 2.5rem;
+  margin: 3rem;
+  border: 0.05rem solid #4C0827;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+body .content .login h1 {
+  font-size: 2rem;
+  color: black;
+  margin: 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+body .content .login form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+}
+body .content .login form input {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.05rem solid #4C0827;
+  margin: 0;
+  width: 20rem;
+}
+body .content .login form .submit-button {
+  margin-top: 0.5rem;
+  background-color: #F3F3F3;
+  transition: background-color 0.15s ease;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.075rem solid #4C0827;
+  cursor: pointer;
+  width: 6rem;
+}
+body .content .login form .submit-button:hover {
+  background-color: #9dad9b;
 }
 body .results {
   margin-top: 1.5rem;
@@ -200,6 +324,7 @@ body .results ul a {
 }
 body .results ul a li {
   padding: 1.5rem;
+  border-radius: 0.5rem;
   border: 0.075rem solid #4C0827;
   background-color: #F3F3F3;
   text-align: left;
@@ -267,6 +392,7 @@ body .opportunity {
 body .opportunity .opportunity-description {
   background-color: #F3F3F3;
   padding: 3rem;
+  border-radius: 0.5rem;
   border: 0.05rem solid #4C0827;
 }
 body .opportunity .opportunity-description ol {
@@ -295,6 +421,7 @@ body .opportunity .opportunity-description ol p {
 body .opportunity .opportunity-org {
   background-color: #F3F3F3;
   padding: 1.75rem;
+  border-radius: 0.5rem;
   border: 0.05rem solid #4C0827;
   height: 100%;
   display: flex;
@@ -371,6 +498,7 @@ body .saved_opportunities ul a {
 }
 body .saved_opportunities ul a li {
   padding: 1.5rem;
+  border-radius: 0.5rem;
   border: 0.075rem solid #4C0827;
   background-color: #F3F3F3;
   text-align: left;
