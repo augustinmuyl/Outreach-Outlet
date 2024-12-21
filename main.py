@@ -12,6 +12,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import atexit
 import os
 from dotenv import load_dotenv
+from flask_migrate import Migrate
 
 
 load_dotenv()
@@ -19,33 +20,48 @@ load_dotenv()
 # Initialize Flask app
 def create_app():
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+
+    database_url = os.environ.get('DATABASE_URL')
+    if database_url and database_url.startswith("postgres://"):
+        database_url = database_url.replace("postgres://", "postgresql://", 1)
+
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_url or 'sqlite:///database.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     Scss(app)
 
     db.init_app(app)
+    Migrate(app, db)
 
-    with app.app_context():
-        db.create_all()
-    
     return app
 
-
 app = create_app()
+
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
 
-with app.app_context():
-    base_url = 'https://www.volunteerconnector.org/api/search/'
-    api = Volunteer_API(base_url)
-    data_processor = Data_Processor(api)
+def apply_migrations():
+    with app.app_context():
+        from flask_migrate import upgrade
+        upgrade()
+
+
+def initialize_data_processor():
+    with app.app_context():
+        base_url = 'https://www.volunteerconnector.org/api/search/'
+        api = Volunteer_API(base_url)
+        global data_processor
+        data_processor = Data_Processor(api)
 
 
 def process_data_with_context():
     with app.app_context():
         data_processor.process_data()
+
+
+apply_migrations()
+initialize_data_processor()
 
 
 # Scheduler
@@ -214,4 +230,7 @@ def user_opportunity(opportunity_id):
 
 
 if __name__ == '__main__':
+    apply_migrations()
+    initialize_data_processor()
+    process_data_with_context()
     app.run()
