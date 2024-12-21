@@ -8,14 +8,20 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from database import db, Opportunity, Category, User
 from api import Volunteer_API, Data_Processor
+from apscheduler.schedulers.background import BackgroundScheduler
+import atexit
+import os
+from dotenv import load_dotenv
 
+
+load_dotenv()
 
 # Initialize Flask app
 def create_app():
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-    app.config['SECRET_KEY'] = 'secret_key'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     Scss(app)
 
     db.init_app(app)
@@ -29,11 +35,25 @@ def create_app():
 app = create_app()
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
+
+
 with app.app_context():
     base_url = 'https://www.volunteerconnector.org/api/search/'
     api = Volunteer_API(base_url)
     data_processor = Data_Processor(api)
-    #data_processor.process_data()
+
+
+def process_data_with_context():
+    with app.app_context():
+        data_processor.process_data()
+
+
+# Scheduler
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=process_data_with_context, trigger='interval', minutes=60)
+scheduler.start()
+
+atexit.register(lambda: scheduler.shutdown())
 
 
 # User loader and Forms
@@ -194,4 +214,4 @@ def user_opportunity(opportunity_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)  # Run the app in debug mode
+    app.run()
