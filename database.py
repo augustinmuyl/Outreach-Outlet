@@ -1,9 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 
-
 db = SQLAlchemy()
-
 
 # Association tables
 opportunity_categories = db.Table('opportunity_categories', 

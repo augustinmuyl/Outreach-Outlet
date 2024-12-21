@@ -20,7 +20,12 @@ load_dotenv()
 # Initialize Flask app
 def create_app():
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///database.db'
+
+    database_url = os.environ.get('DATABASE_URL')
+    if database_url and database_url.startswith("postgres://"):
+        database_url = database_url.replace("postgres://", "postgresql://", 1)
+
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_url or 'sqlite:///database.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     Scss(app)
@@ -30,8 +35,8 @@ def create_app():
 
     return app
 
-
 app = create_app()
+
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
@@ -40,6 +45,7 @@ with app.app_context():
     base_url = 'https://www.volunteerconnector.org/api/search/'
     api = Volunteer_API(base_url)
     data_processor = Data_Processor(api)
+    data_processor.process_data()
 
 
 def process_data_with_context():
